@@ -116,7 +116,7 @@ html, body {
 label {
   font-weight: 600;
   margin-bottom: 4px;
-  font-size: 12px;
+  font-size: 14px;
   color: var(--text-label);
 }
 
@@ -156,6 +156,7 @@ textarea {
   gap: 8px;
   margin-top: 5px;
   flex-shrink: 0;
+  width: 100%;
 }
 
 button { 
@@ -166,6 +167,7 @@ button {
   font-weight: 600;
   font-size: 13px;
   transition: background 0.2s, transform 0.1s;
+  flex: 1;
 }
 
 button:active {

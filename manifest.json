@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "AI Prompt Structurer",
+  "name": "AI Prompter",
   "version": "1.0",
   "description": "Форматирует и вставляет структурированные промпты в поле ввода ИИ",
   "permissions": [
