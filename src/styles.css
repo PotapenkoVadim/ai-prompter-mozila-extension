@@ -1,47 +1,82 @@
 @import url('https://googleapis.com');
 
 :root {
-  --bg-main: #f4f5f7;
-  --bg-back-card: #ffffff;
-  --text-main: #333333;
-  --text-label: #4a5568;
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-gray-50:  #f9fafb;
+  --color-gray-100: #f3f4f6;
+  --color-gray-200: #e5e7eb;
+  --color-gray-300: #cbd5e1;
+  --color-gray-400: #9ca3af;
+  --color-gray-500: #6b7280;
+  --color-gray-600: #4a5568;
+  --color-gray-700: #374151;
+  --color-gray-800: #1f2937;
+  --color-gray-900: #111827;
+  --color-gray-950: #1e1e1e;
+  --color-blue-500: #3b82f6;
+  --color-blue-600: #0060df;
+  --color-blue-700: #0045a3;
+  --color-green-500: #10b981;
+  --color-green-600: #059669;
+  --color-red-400: #f87171;
+  --color-red-500: #ef4444;
+  --color-red-600: #dc2626;
+  --color-preview-text: #d4d4d4;
+
+  --bg-main: var(--color-gray-100);
+  --bg-back-card: var(--color-white);
+  --text-main: var(--color-gray-800);
+  --text-label: var(--color-gray-600);
+  --text-splash: var(--color-gray-400);
   
-  --input-bg: #ffffff;
-  --input-border: #cbd5e1;
-  --input-text: #333333;
-  --input-focus-border: #0060df;
+  --input-bg: var(--color-white);
+  --input-border: var(--color-gray-300);
+  --input-text: var(--color-gray-800);
+  --input-focus-border: var(--color-blue-600);
+  --input-error-border: var(--color-red-500);
   
-  --btn-primary-bg: #0060df;
-  --btn-primary-hover: #0045a3;
-  --btn-primary-text: #ffffff;
+  --btn-primary-bg: var(--color-blue-600);
+  --btn-primary-hover: var(--color-blue-700);
+  --btn-primary-text: var(--color-white);
   
-  --btn-secondary-bg: #e2e8f0;
-  --btn-secondary-hover: #cbd5e1;
-  --btn-secondary-text: #4a5568;
+  --btn-secondary-bg: var(--color-gray-200);
+  --btn-secondary-hover: var(--color-gray-100);
+  --btn-secondary-text: var(--color-gray-600);
   
-  --btn-success-bg: #10b981;
-  --btn-success-hover: #059669;
-  --btn-success-text: #ffffff;
+  --btn-success-bg: var(--color-green-500);
+  --btn-success-hover: var(--color-green-600);
+  --btn-success-text: var(--color-white);
+
+  --btn-danger-bg: var(--color-red-500);
+  --btn-danger-hover: var(--color-red-600);
+  --btn-danger-text: var(--color-white);
   
-  --preview-bg: #1e1e1e;
-  --preview-text: #d4d4d4;
+  --preview-bg: var(--color-gray-950);
+  --preview-text: var(--color-preview-text);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg-main: #111827;
-    --bg-back-card: #1f2937;
-    --text-main: #f3f4f6;
-    --text-label: #9ca3af;
+    --bg-main: var(--color-gray-900);
+    --bg-back-card: var(--color-gray-800);
+    --text-main: var(--color-gray-100);
+    --text-label: var(--color-gray-400);
+    --text-splash: var(--color-gray-700);
     
-    --input-bg: #374151;
-    --input-border: #4b5563;
-    --input-text: #f3f4f6;
-    --input-focus-border: #3b82f6;
+    --input-bg: var(--color-gray-700);
+    --input-border: var(--color-gray-500);
+    --input-text: var(--color-gray-100);
+    --input-focus-border: var(--color-blue-500);
+    --input-error-border: var(--color-red-400);
     
-    --btn-secondary-bg: #374151;
-    --btn-secondary-hover: #4b5563;
-    --btn-secondary-text: #e5e7eb;
+    --btn-secondary-bg: var(--color-gray-700);
+    --btn-secondary-hover: var(--color-gray-500);
+    --btn-secondary-text: var(--color-gray-200);
+
+    --btn-danger-bg: var(--color-red-400);
+    --btn-danger-hover: var(--color-red-500);
+    --btn-danger-text: var(--color-gray-900);
   }
 }
 
@@ -197,4 +232,28 @@ button:active {
 }
 .btn-success:hover { 
   background: var(--btn-success-hover); 
+}
+
+input.error-field, textarea.error-field {
+  border-color: var(--input-error-border) !important;
+  box-shadow: 0 0 0 1px var(--input-error-border);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.btn-danger-active {
+  background-color: var(--btn-danger-bg) !important;
+  color: var(--btn-danger-text) !important;
+}
+.btn-danger-active:hover {
+  background-color: var(--btn-danger-hover) !important;
+}
+
+.shake-animation {
+  animation: shake 0.4s ease-in-out;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-4px); }
+  40%, 80% { transform: translateX(4px); }
 }

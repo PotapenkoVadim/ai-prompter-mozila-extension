@@ -1,14 +1,14 @@
 import {
   BACK_BTN_ID,
   CLEAR_BTN_ID,
-  CLEAR_FORM_TEXT,
   COPY_BTN_ID,
-  EMPTY_ERROR_TEXT,
   FLIPPER_FLIPPED_CLASS,
   GENERATE_BTN_ID
 } from "./constants";
 import { copyToClipboard, generateMarkdown } from "./copy";
-import { clearForm } from "./form";
+import { clearForm, validateForm } from "./form";
+
+let clearConfirmTimeout: number | null = null;
 
 export const generateButtonsActions = ({
   markdownOutput,
@@ -18,11 +18,14 @@ export const generateButtonsActions = ({
   flipper: HTMLDivElement
 }): Record<string, (btn: HTMLButtonElement) => void> => {
   return {
-    [GENERATE_BTN_ID]: () => {
-      const md = generateMarkdown();
-      if (!md) return alert(EMPTY_ERROR_TEXT);
+    [GENERATE_BTN_ID]: (btn) => {
+      if (!validateForm()) {
+        btn.classList.add('shake-animation');
+        setTimeout(() => btn.classList.remove('shake-animation'), 400);
+        return;
+      }
       
-      markdownOutput.value = md;
+      markdownOutput.value = generateMarkdown();
       flipper.classList.add(FLIPPER_FLIPPED_CLASS);
     },
     
@@ -30,9 +33,22 @@ export const generateButtonsActions = ({
       flipper.classList.remove(FLIPPER_FLIPPED_CLASS);
     },
     
-    [CLEAR_BTN_ID]: () => {
-      if (confirm(CLEAR_FORM_TEXT)) {
+    [CLEAR_BTN_ID]: (btn) => {
+      const isConfirmState = btn.classList.contains('btn-danger-active');
+      
+      if (!isConfirmState) {
+        btn.classList.add('btn-danger-active');
+        btn.innerText = 'Уверены?';
+        
+        clearConfirmTimeout = window.setTimeout(() => {
+          btn.classList.remove('btn-danger-active');
+          btn.innerText = 'Очистить';
+        }, 3000);
+      } else {
+        if (clearConfirmTimeout) clearTimeout(clearConfirmTimeout);
         clearForm();
+        btn.classList.remove('btn-danger-active');
+        btn.innerText = 'Очистить';
       }
     },
     

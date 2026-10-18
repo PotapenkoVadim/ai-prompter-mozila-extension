@@ -10,9 +10,6 @@ export const FORM_FIELDS = {
 export const SUCCESS_COLOR = '#059669';
 export const SUCCESS_TEXT = 'Скопировано!';
 
-export const EMPTY_ERROR_TEXT = 'Заполните хотя бы одно поле перед генерацией!';
-export const CLEAR_FORM_TEXT = 'Очистить все поля формы?';
-
 export const FLIPPER_ID = 'flipper';
 export const FLIPPER_CONTAINER = '.flip-container';
 export const MARKDOWN_OUTPUT_ID = 'markdown-output';

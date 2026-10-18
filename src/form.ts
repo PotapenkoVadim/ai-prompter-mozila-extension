@@ -23,3 +23,22 @@ export function clearForm(): void {
     localStorage.setItem(`prompt_${key}`, FORM_FIELDS[key].value);
   });
 }
+
+export function validateForm(): boolean {
+  const hasContent = Object.values(FORM_FIELDS).some(field => field.value.trim() !== '');
+  
+  if (!hasContent) {
+    Object.values(FORM_FIELDS).forEach(field => {
+      field.classList.add('error-field');
+      
+      const removeError = () => {
+        field.classList.remove('error-field');
+        field.removeEventListener('input', removeError);
+      };
+      field.addEventListener('input', removeError);
+    });
+    return false;
+  }
+  
+  return true;
+}
