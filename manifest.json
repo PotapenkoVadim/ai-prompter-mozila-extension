@@ -1,0 +1,16 @@
+{
+  "manifest_version": 3,
+  "name": "AI Prompt Structurer",
+  "version": "1.0",
+  "description": "Форматирует и вставляет структурированные промпты в поле ввода ИИ",
+  "permissions": [
+    "activeTab",
+    "scripting"
+  ],
+  "sidebar_action": {
+    "default_panel": "index.html"
+  },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'; style-src 'self' https://googleapis.com; font-src 'self' https://gstatic.com;"
+  }
+}

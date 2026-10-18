@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <title>AI Prompter</title>
+</head>
+<body>
+  <div class="flip-container">
+    <div class="flipper" id="flipper">
+      <div class="front">
+        <div class="field short">
+          <label for="task"># TASK:</label>
+          <input type="text" id="task" placeholder="Что нужно сделать?">
+        </div>
+        <div class="field">
+          <label for="context"># CONTEXT:</label>
+          <textarea id="context" placeholder="Детали, предыстория..."></textarea>
+        </div>
+        <div class="field short">
+          <label for="constraints"># CONSTRAINTS:</label>
+          <input type="text" id="constraints">
+        </div>
+        <div class="field">
+          <label for="rules"># RULES:</label>
+          <textarea id="rules" placeholder="Дополнительные правила..."></textarea>
+        </div>
+        <div class="btn-group">
+          <button id="clear-btn" class="btn-secondary">Очистить</button>
+          <button id="generate-btn" class="btn-primary" style="flex-grow: 1;">Сгенерировать Markdown</button>
+        </div>
+      </div>
+
+      <div class="back">
+        <div class="field">
+          <label for="markdown-output">Ваш готовый промпт:</label>
+          <textarea id="markdown-output" class="preview-area"></textarea>
+        </div>
+        <div class="btn-group">
+          <button id="back-btn" class="btn-secondary">Назад</button>
+          <button id="copy-btn" class="btn-success" style="flex-grow: 1;">Скопировать текст</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script type="module" src="/src/main.ts"></script>
+</body>
+</html>

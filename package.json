@@ -1,0 +1,16 @@
+{
+  "name": "ai-promter",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build && node -e \"import('fs').then(fs => fs.copyFileSync('manifest.json', 'dist/manifest.json'))\"",
+    "zip": "npm run build && rm -f Archive.zip && cd dist && zip -r ../Archive.zip ./*"
+  },
+  "devDependencies": {
+    "@types/webextension-polyfill": "^0.10.7",
+    "typescript": "^5.2.2",
+    "vite": "^5.0.0"
+  }
+}
