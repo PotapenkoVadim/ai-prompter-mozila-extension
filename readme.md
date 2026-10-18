@@ -1,45 +1,46 @@
 # AI Prompter — Firefox Sidebar Extension
 
-**AI Prompter** — это минималистичное и функциональное расширение для браузера Mozilla Firefox, реализованное в виде боковой панели. Оно помогает структурировать общение с ИИ-ассистентами с помощью методологии разделения промпта на ключевые блоки.
+**AI Prompter** is a minimalist and functional browser extension for Mozilla Firefox, implemented as a sidebar. It helps structure communication with AI assistants using a methodology that divides the prompt into key structural blocks.
 
-## Особенности (Features)
+## Features
 
-*   **Структурирование промптов:** Удобная форма для заполнения блоков `# TASK`, `# CONTEXT`, `# CONSTRAINTS` и `# RULES`.
-*   **Умные ограничения по умолчанию:** Автоматически добавляет инструкции против лишней «болтовни» ИИ (`no small talk`) и предложений продолжения диалога (`no follow-up suggestions`), заставляя нейросеть отвечать строго по делу.
-*   **Устойчивость к смене раскладки:** Формат боковой панели (`sidebar`) гарантирует, что расширение не закроется случайно при переключении языка (Alt+Shift / Cmd+Space).
-*   **Автоматическая темная тема:** Стили автоматически подстраиваются под тему вашей операционной системы или браузера.
-*   **Локальное сохранение данных:** Введенный текст автоматически сохраняется в `localStorage` и не сотрется при случайном закрытии панели.
+* **Prompt Structuring:** A convenient form for filling out `# TASK`, `# CONTEXT`, `# CONSTRAINTS`, and `# RULES` blocks.
+* **Smart Default Constraints:** Automatically appends instructions against unnecessary AI chatter (`no small talk`) and dialogue continuation prompts (`no follow-up suggestions`), forcing the neural network to answer strictly to the point.
+* **Layout Switch Resilience:** The sidebar format ensures that the extension does not close accidentally when switching input languages (Alt+Shift / Cmd+Space).
+* **Automatic Dark Theme:** Styles automatically adjust to your operating system or browser theme.
+* **Local Data Persistence:** The entered text is automatically saved to `localStorage` and will not be lost if the panel is accidentally closed.
 
-## Стек технологий (Tech Stack)
+## Tech Stack
 
-*   **Vite** — для ультрабыстрой сборки и минификации кода.
-*   **TypeScript** — для строгой типизации и модульной архитектуры.
-*   **CSS Variables** — для удобного управления палитрой и темами в одном месте.
-*   **Manifest V3** — современный стандарт расширений с правами `activeTab`.
+* **Vite** — for ultra-fast bundling and code minification.
+* **TypeScript** — for strict typing and modular architecture.
+* **CSS Variables** — for easy palette and theme management in one place.
+* **Manifest V3** — the modern extension standard using `activeTab` permissions.
 
-## Быстрый старт (Quick Start)
+## How to Build from Source
 
-### Разработка и сборка
+### Requirements
+- Operating System: Linux / Windows / macOS
+- Node.js version: 18.x or higher
+- Npm version: 9.x or higher
 
-1. Установите зависимости Node.js:
+### Step-by-Step Build Instructions
+1. Extract the source code ZIP archive.
+2. Open your terminal/command prompt and navigate to the extracted project root directory.
+3. Install all necessary dependencies by running:
    ```bash
    npm install
    ```
-
-2. Запуск в режиме разработки:
+4. Build the production version of the extension by running:
    ```bash
-   npm run dev
+   npm run build
    ```
+   *(Note: If you are on Linux/Ubuntu, you can alternatively run `npm run zip` to compile and create the archive package).*
+5. The exact compiled extension files matching the submitted add-on will be generated inside the `dist/` directory.
 
-3. Компиляция TypeScript, сборка и автоматическая упаковка расширения в ZIP-архив (для Ubuntu/Linux):
-   ```bash
-   npm run zip
-   ```
-   В корне проекта появится готовый файл `Archive.zip`.
+### Temporary Installation in Firefox (For Testing)
 
-### Установка в Firefox (временно)
-
-1. Откройте Firefox и перейдите по адресу `about:debugging#/runtime/this-firefox`.
-2. Нажмите **«Загрузить временное дополнение...»** (Load Temporary Add-on...).
-3. Выберите `manifest.json` из папки `dist/` (появляется после запуска `npm run build` или `npm run zip`).
-4. Нажмите `Ctrl + B` на клавиатуре и выберите **AI Prompter** в выпадающем списке сайдбара.
+1. Open Firefox and navigate to `about:debugging#/runtime/this-firefox`.
+2. Click **"Load Temporary Add-on..."**.
+3. Select the `manifest.json` file from the `dist/` directory (which appears after running the build step).
+4. Press `Ctrl + B` on your keyboard and select **AI Prompter** from the sidebar dropdown list.
