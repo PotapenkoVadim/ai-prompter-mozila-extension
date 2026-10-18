@@ -1,19 +1,12 @@
 import './styles.css';
-import { initForm, clearForm } from './form';
-import { generateMarkdown, copyToClipboard } from './copy';
+import { initForm } from './form';
 import {
-  BACK_BTN_ID,
-  CLEAR_BTN_ID,
-  CLEAR_FORM_TEXT,
-  COPY_BTN_ID,
-  EMPTY_ERROR_TEXT,
   FLIPPER_CONTAINER,
-  FLIPPER_FLIPPED_CLASS,
   FLIPPER_ID,
   FONTS_LOADED_CLASS,
-  GENERATE_BTN_ID,
   MARKDOWN_OUTPUT_ID
 } from './constants';
+import { generateButtonsActions } from './buttons-actions';
 
 function main() {
   const flipper = document.getElementById(FLIPPER_ID) as HTMLDivElement;
@@ -33,28 +26,14 @@ function main() {
     }, 300);
   });
 
-  document.getElementById(GENERATE_BTN_ID)?.addEventListener('click', () => {
-    const md = generateMarkdown();
-    if (!md) return alert(EMPTY_ERROR_TEXT);
-    
-    markdownOutput.value = md;
-    flipper.classList.add(FLIPPER_FLIPPED_CLASS); 
-  });
+  const buttonListeners = generateButtonsActions({flipper, markdownOutput});
 
-  document.getElementById(BACK_BTN_ID)?.addEventListener('click', () => {
-    flipper.classList.remove(FLIPPER_FLIPPED_CLASS);
-  });
+  Object.entries(buttonListeners).forEach(([id, listener]) => {
+    const button = document.getElementById(id) as HTMLButtonElement | null;
 
-  document.getElementById(CLEAR_BTN_ID)?.addEventListener('click', () => {
-    if (confirm(CLEAR_FORM_TEXT)) {
-      clearForm();
-    }
-  });
-
-  document.getElementById(COPY_BTN_ID)?.addEventListener('click', function(this: HTMLButtonElement) {
-    markdownOutput.focus();
-    markdownOutput.select();
-    copyToClipboard(markdownOutput.value, this);
+    button?.addEventListener('click', function(this: HTMLButtonElement) {
+      listener(this);
+    });
   });
 }
 
