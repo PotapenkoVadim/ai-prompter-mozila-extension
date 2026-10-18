@@ -12,18 +12,32 @@
           <label for="task"># TASK:</label>
           <input type="text" id="task" placeholder="Что нужно сделать?">
         </div>
+
         <div class="field">
           <label for="context"># CONTEXT:</label>
           <textarea id="context" placeholder="Детали, предыстория..."></textarea>
         </div>
+
         <div class="field short">
           <label for="constraints"># CONSTRAINTS:</label>
           <input type="text" id="constraints">
         </div>
+
+        <div class="field short">
+          <label for="output-format"># OUTPUT FORMAT:</label>
+          <input type="text" id="output-format" placeholder="Например: JSON, таблица, Python-код">
+        </div>
+
+        <div class="field">
+          <label for="examples"># EXAMPLES:</label>
+          <textarea id="examples" placeholder="Вход -> Выход..."></textarea>
+        </div>
+
         <div class="field">
           <label for="rules"># RULES:</label>
           <textarea id="rules" placeholder="Дополнительные правила..."></textarea>
         </div>
+
         <div class="btn-group">
           <button id="clear-btn" class="btn-secondary">Очистить</button>
           <button id="generate-btn" class="btn-primary">Сгенерировать</button>
@@ -40,7 +54,6 @@
           <button id="copy-btn" class="btn-success">Скопировать</button>
         </div>
       </div>
-
     </div>
   </div>
 

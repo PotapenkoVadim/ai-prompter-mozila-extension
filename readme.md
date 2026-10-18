@@ -4,7 +4,7 @@
 
 ## Features
 
-* **Prompt Structuring:** A convenient form for filling out `# TASK`, `# CONTEXT`, `# CONSTRAINTS`, and `# RULES` blocks.
+* **Prompt Structuring:** A convenient form for filling out `# TASK`, `# CONTEXT`, `# CONSTRAINTS`, `# RULES` blocks etc.
 * **Smart Default Constraints:** Automatically appends instructions against unnecessary AI chatter (`no small talk`) and dialogue continuation prompts (`no follow-up suggestions`), forcing the neural network to answer strictly to the point.
 * **Layout Switch Resilience:** The sidebar format ensures that the extension does not close accidentally when switching input languages (Alt+Shift / Cmd+Space).
 * **Automatic Dark Theme:** Styles automatically adjust to your operating system or browser theme.
